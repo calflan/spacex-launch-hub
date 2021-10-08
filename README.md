@@ -1,6 +1,4 @@
-SpaceX launch hub
-
-by Calum Flanagan
+# SpaceX launch hub
 
 ## Start
 
