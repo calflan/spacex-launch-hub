@@ -1,11 +1,10 @@
 import Head from "next/head";
-import Image from "next/image";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import styles from "../styles/Home.module.css";
 
 export default function Home({ launches, missions }) {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>SpaceX Launches</title>
         <meta
@@ -15,7 +14,7 @@ export default function Home({ launches, missions }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main>
         <h1 className={styles.title}>SpaceX Launches</h1>
 
         <p className={styles.description}>Recent launches</p>
@@ -52,23 +51,6 @@ export default function Home({ launches, missions }) {
           })}
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://github.com/calflan/spacex-launch-hub"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className={styles.logo}>
-            <Image
-              src="/githubLogo.svg"
-              alt="Github Logo"
-              width={72}
-              height={16}
-            />
-          </span>
-        </a>
-      </footer>
     </div>
   );
 }

@@ -1,11 +1,12 @@
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import styles from "../../styles/subPage.module.css";
 
-export default function Launch({ launch }) {
+export default function Review({ mission }) {
   return (
-    <div key={launch.id} className={styles.container}>
-      <h1 className={styles.title}>{launch.mission_name}</h1>
-      <p className={styles.description}>{launch.launch_year}</p>
+    <div key={mission.id} className={styles.container}>
+      <h1 className={styles.title}>{mission.name}</h1>
+      <h2 className={styles.description}>{mission.website}</h2>
+      <p>{mission.description}</p>
     </div>
   );
 }
@@ -18,8 +19,8 @@ export async function getStaticPaths() {
 
   const { data } = await client.query({
     query: gql`
-      query GetLaunches {
-        launchesPast(limit: 4) {
+      query GetMissions {
+        missions {
           id
         }
       }
@@ -28,8 +29,8 @@ export async function getStaticPaths() {
 
   console.log(data);
 
-  const paths = data.launchesPast.map((launch) => ({
-    params: { id: launch.id },
+  const paths = data.missions.map((mission) => ({
+    params: { id: mission.id },
   }));
 
   return { paths, fallback: false };
@@ -44,15 +45,12 @@ export async function getStaticProps({ params }) {
 
   const { data } = await client.query({
     query: gql`
-      query GetLaunch {
-        launch(id: ${params.id}) {
+      query GetMission {
+        mission(id: "${params.id}") {
+          description
           id
-          launch_year
-          mission_name
-          rocket {
-            rocket_name
-            rocket_type
-          }
+          name
+          website
         }
       }
     `,
@@ -60,7 +58,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      launch: data.launch,
+      mission: data.mission,
     },
   };
 }
