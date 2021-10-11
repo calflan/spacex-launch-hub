@@ -27,8 +27,6 @@ export async function getStaticPaths() {
     `,
   });
 
-  console.log(data);
-
   const paths = data.missions.map((mission) => ({
     params: { id: mission.id },
   }));

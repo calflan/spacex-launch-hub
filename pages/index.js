@@ -9,16 +9,18 @@ export default function Home({ launches, missions }) {
         <title>SpaceX Launches</title>
         <meta
           name="description"
-          content="Launch details for past and upcoming SpaceX launches"
+          content="Launch and mission details for SpaceX launches"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <h1 className={styles.title}>SpaceX Launches</h1>
+        <p className={styles.description}>
+          Launch and mission details for SpaceX launches
+        </p>
 
         <p className={styles.description}>Recent launches</p>
-
         <div className={styles.grid}>
           {launches.map((launch) => {
             return (
@@ -28,6 +30,7 @@ export default function Home({ launches, missions }) {
                 className={styles.card}
               >
                 <h2>{launch.mission_name}</h2>
+                <p>{launch.rocket.rocket_name}</p>
                 <p>{launch.launch_date_local}</p>
               </a>
             );
@@ -68,14 +71,6 @@ export async function getStaticProps() {
           id
           mission_name
           launch_date_local
-          launch_site {
-            site_name_long
-          }
-          links {
-            article_link
-            video_link
-            mission_patch
-          }
           rocket {
             rocket_name
           }

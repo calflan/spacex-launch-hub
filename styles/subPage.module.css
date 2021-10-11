@@ -1,6 +1,5 @@
 .container {
   margin: 5rem;
-  max-width: 70%;
 }
 
 .title a {
@@ -17,7 +16,7 @@
 .title {
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .title,
