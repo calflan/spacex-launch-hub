@@ -1,5 +1,5 @@
 .container {
-  margin: 5rem;
+  margin: 5rem 50rem;
 }
 
 .title a {
@@ -85,6 +85,9 @@
 }
 
 @media (max-width: 600px) {
+  .container {
+    margin: 2rem;
+  }
   .grid {
     width: 100%;
     flex-direction: column;

@@ -10,6 +10,7 @@ export default function Launch({ launch }) {
         light
         url={launch?.links?.video_link}
         width="100%"
+        height="50vh"
       />
       <div key={launch.id} className={styles.container}>
         <h1 className={styles.title}>
