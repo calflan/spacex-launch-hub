@@ -1,5 +1,7 @@
 # SpaceX launch hub
 
+Messing around with Next.js & GraphQL
+
 ## Start
 
 Run the following:
