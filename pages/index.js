@@ -9,7 +9,7 @@ export default function Home({ launches, missions, histories }) {
         <title>SpaceX Launches</title>
         <meta
           name="description"
-          content="Launch and mission details for SpaceX launches"
+          content="Launch and mission details for SpaceX"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -18,7 +18,7 @@ export default function Home({ launches, missions, histories }) {
         <div className={styles.heading}>
           <h1 className={styles.title}>SpaceX Launches</h1>
           <p className={styles.description}>
-            Launch and mission details for SpaceX launches
+            Launch and mission details for SpaceX
           </p>
         </div>
 
