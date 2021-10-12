@@ -1,10 +1,11 @@
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import styles from "../../styles/subPage.module.css";
 import ReactPlayer from "react-player";
+import React from "react";
 
 export default function Launch({ launch }) {
   return (
-    <div>
+    <React.Fragment>
       <ReactPlayer
         stopOnUnmount
         light
@@ -23,7 +24,7 @@ export default function Launch({ launch }) {
         )}
         {launch.details && <p>{launch.details}</p>}
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 
@@ -42,8 +43,6 @@ export async function getStaticPaths() {
       }
     `,
   });
-
-  console.log(data);
 
   const paths = data.launchesPast.map((launch) => ({
     params: { id: launch.id },
@@ -77,7 +76,6 @@ export async function getStaticProps({ params }) {
       }
     `,
   });
-  console.log(data);
 
   return {
     props: {
