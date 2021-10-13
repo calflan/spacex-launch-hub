@@ -35,7 +35,11 @@ export default function Home({ launches, missions, histories }) {
                   >
                     <h2>{launch.mission_name}</h2>
                     <p>{launch.rocket.rocket_name}</p>
-                    <p>{launch.launch_date_local}</p>
+                    <p>
+                      {new Date(launch.launch_date_local).toLocaleDateString(
+                        "en-UK"
+                      )}
+                    </p>
                   </a>
                 );
               })}
@@ -49,7 +53,7 @@ export default function Home({ launches, missions, histories }) {
                 return (
                   <a
                     key={mission.id}
-                    href={`/mission/${mission.id}`}
+                    href={mission.website}
                     className={styles.card}
                   >
                     <h2>{mission.name}</h2>
